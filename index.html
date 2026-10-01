@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ITZFIZZ - Scroll-Driven Hero Section</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #0b0f19;
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    /* Navigation Bar */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      z-index: 1000;
+      background: rgba(11, 15, 25, 0.8);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 800;
+      color: #00f2fe;
+      letter-spacing: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #cbd5e1;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #00f2fe;
+    }
+
+    /* Hero Section Container (Sufficient height for scrolling) */
+    .hero-container {
+      height: 250vh;
+      position: relative;
+    }
+
+    /* Sticky Wrapper to keep Hero Section visible during scroll */
+    .hero-sticky {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    /* Glowing Background Animation Element */
+    .hero-bg-glow {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(0, 242, 254, 0.35) 0%, rgba(4, 0, 254, 0) 70%);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      filter: blur(60px);
+      z-index: 1;
+      will-change: width, height, opacity;
+    }
+
+    /* Hero Heading Text */
+    .hero-title {
+      font-size: 4.5rem;
+      font-weight: 800;
+      letter-spacing: 3px;
+      z-index: 2;
+      background: linear-gradient(90deg, #ffffff, #00f2fe, #4facfe);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      will-change: transform, opacity;
+      text-transform: uppercase;
+    }
+
+    /* Subtitle Text */
+    .hero-subtitle {
+      font-size: 1.4rem;
+      margin-top: 20px;
+      color: #94a3b8;
+      max-width: 650px;
+      z-index: 2;
+      will-change: opacity, transform;
+      line-height: 1.6;
+    }
+
+    /* Content Section Below Hero */
+    .content-section {
+      min-height: 100vh;
+      background: #070a10;
+      padding: 100px 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 5;
+    }
+
+    .content-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      color: #ffffff;
+    }
+
+    .cards {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 1100px;
+    }
+
+    .card {
+      background: #111827;
+      border: 1px solid #1f2937;
+      padding: 35px 25px;
+      border-radius: 16px;
+      width: 300px;
+      text-align: left;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: #00f2fe;
+    }
+
+    .card h3 {
+      color: #00f2fe;
+      margin-bottom: 12px;
+      font-size: 1.3rem;
+    }
+
+    .card p {
+      color: #94a3b8;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .hero-title { font-size: 2.5rem; }
+      .hero-subtitle { font-size: 1rem; padding: 0 20px; }
+      nav { padding: 15px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header / Navigation -->
+  <nav>
+    <div class="logo">ITZFIZZ</div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About Us</a></li>
+    </ul>
+  </nav>
+
+  <!-- Scroll-Driven Hero Section -->
+  <div class="hero-container" id="home">
+    <div class="hero-sticky">
+      <div class="hero-bg-glow" id="bgGlow"></div>
+      <h1 class="hero-title" id="heroTitle">WELCOME TO ITZFIZZ</h1>
+      <p class="hero-subtitle" id="heroSub">
+        We craft high-performance digital solutions, web applications, and immersive user experiences.
+      </p>
+    </div>
+  </div>
+
+  <!-- Content Section Below -->
+  <section class="content-section" id="services">
+    <h2>Our Core Services</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Web Development</h3>
+        <p>Creating fast, modern, and fully responsive web applications tailored to business needs.</p>
+      </div>
+      <div class="card">
+        <h3>UI/UX Architecture</h3>
+        <p>Designing interactive, clean, and modern user interfaces for seamless web navigation.</p>
+      </div>
+      <div class="card">
+        <h3>Digital Transformation</h3>
+        <p>Empowering companies with modern software solutions and custom web architectures.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- JavaScript for Scroll-Driven Animation -->
+  <script>
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      const heroTitle = document.getElementById('heroTitle');
+      const heroSub = document.getElementById('heroSub');
+      const bgGlow = document.getElementById('bgGlow');
+
+      // Scroll physics calculation
+      let scaleVal = 1 + scrollY * 0.0012;
+      let opacityVal = 1 - scrollY * 0.0011;
+      let translateYVal = scrollY * 0.25;
+      let glowSize = 300 + scrollY * 1.2;
+
+      // Keep opacity bounded between 0 and 1
+      if (opacityVal < 0) opacityVal = 0;
+
+      // Apply dynamic CSS transformations on Scroll
+      heroTitle.style.transform = `scale(${scaleVal}) translateY(-${translateYVal}px)`;
+      heroTitle.style.opacity = opacityVal;
+
+      heroSub.style.transform = `translateY(-${translateYVal * 0.5}px)`;
+      heroSub.style.opacity = opacityVal;
+
+      bgGlow.style.width = `${glowSize}px`;
+      bgGlow.style.height = `${glowSize}px`;
+      bgGlow.style.opacity = opacityVal;
+    });
+  </script>
+
+</body>
+</html>
